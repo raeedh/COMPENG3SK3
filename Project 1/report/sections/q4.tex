@@ -1,0 +1,32 @@
+\section{Questions}
+
+% Can you achieve, in the IEEE 32-bit floating number system, any high precision you desire by summing up the first N terms of the series and by running the summation program for a sufficiently large N? Explain your answer.
+\subsection[q4a]{High Precision}
+It is not possible to achieve any high precision you desire by summing up the first N terms of the series as the IEEE 32-bit floating number system inherently has precision limitations. The sum of the series, which would also be represented in the IEEE 32-bit floating number system, would inherit the same precision limitations of the system and would have an upper-bound limit on its precision.
+
+% With respect to the IEEE 32-bit floating number system, what is the minimum N value such that 1/N becomes too small to be representable? What is the minimum N value such that 1/(N-1)-1/N becomes too small to be representable?  What is the minimum N value such that 1/N is smaller than machine precision?  What is the minimum N value such that 1/(N-1)-1/N is smaller than machine precision.
+\subsection[q4b]{Minimum N}
+The minimum N value such that 1/N becomes too small to be representable is N = $2^{128}$. 
+
+The minimum N value such that 1/(N-1)-1/N becomes too small to be representable is N $= 2^{24}+4$. 
+
+The minimum N value such that 1/N is smaller than machine precision is N = $2^{23}+1$.
+
+The minimum N value such that 1/(N-1)-1/N is smaller than machine precision is 2898.
+
+
+
+% For your algorithm to sum the first N terms of the alternating harmonic series, plot the curve of numerical error against N. Explain the behavior of the error curve. To compute the numerical error, the reference (ground truth) is the Matlab double precision value ln2 = Matlab function log(2) = 0.693147180559945....
+\subsection[q4c]{Numerical Error Against N}
+The numerical error against N is plotted in Figure~\ref*{fig:q4c}. The error curve plots the numerical error against N from N = 1 to N = $2^{10}$. We can observe the error curve decreases as the value of N increases. This means the value of the sum of the alternating harmonic series gets closer to $\ln 2$ as the number of terms in the series increases.
+\begin{figure}[htp]
+\centering
+\caption{Numerical Error against N}\label{fig:q4c}
+\includegraphics[width=\textwidth]{q4c.png}
+\end{figure}
+
+% Does your algorithm achieve the highest possible precision? If not, suggest a possible way to improve the precision.
+\subsection[q4d]{Highest Possible Precision}
+This algorithm does not achieve the highest possible precision. For example, precision is lost during the accumulation process as the result after each summation is truncated. The algorithm could be improved by implementing a method to reduce numerical error by using the Kahan summation algorithm, also called compensated summation.
+
+This method works by keeping maintaining a separate variable which accumulates the error of the summation to compensate the sum at the end.

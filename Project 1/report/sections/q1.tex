@@ -1,0 +1,15 @@
+\section{Pseudo Code}
+\begin{lstlisting}[style=Matlab-editor]
+% initialize singles
+
+% divide series into 4 parts for each parallel processor
+
+% evaluate each part using a parallel processor
+p1 = increment N, divide 1/N and alternate between addition and subtraction to sum
+p2 = increment N, divide 1/N and alternate between addition and subtraction to sum 
+p3 = increment N, divide 1/N and alternate between addition and subtraction to sum 
+p4 = increment N, divide 1/N and alternate between addition and subtraction to sum 
+
+% sum all parts for final result
+sum = p1_sum + p2_sum + p3_sum + p4_sum
+\end{lstlisting}

@@ -1,0 +1,4 @@
+\section{Simulation}
+The simulation implementation is slightly different as it puts each operation on a parallel processor instead of splitting up terms equally to do on each processor. The method described in the pseudo code is preferred as the parallel processors will not be dependent on each other (essentially becoming serial), but this simulation is easier to understand.
+
+\lstinputlisting[style=Matlab-editor, firstline=3, lastline=32]{../project1.m}

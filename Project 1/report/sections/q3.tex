@@ -1,0 +1,2 @@
+\section{Design Decision}
+The pseudo code design splits groups of terms and executes these terms on serially on parallel processors. This allows each processor to function independently from each other. The simulation instead puts each individual operation onto a parallel processor and performs operations for any term N on all parallel processors. This was done to make coding the problem simpler, as performance was not a concern for such a simple program.
