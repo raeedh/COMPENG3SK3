@@ -167,7 +167,7 @@ end
 \end{lstlisting}
 
 \subsection*{Fine-tune $\lambda$}
-To determine the optimal $\lambda$, $\lambda_{op}$, we change the value of $\lambda$ when $\mathbf{p}^{(0)}$ is the average of the $K$ measured coordinates to reduce the RMSE after 50 iterations of Newton's method. We observe that lower value of $\lambda$ is, the lower the converged RSME is. We select $\lambda = 10^{-4}$ as $\lambda_{op}$ as continuing to decrease $\lambda$ any further results in a negligible reduction in the RSME.
+To determine the optimal $\lambda$, $\lambda_{op}$, we change the value of $\lambda$ when $\mathbf{p}^{(0)}$ is the average of the $K$ measured coordinates to reduce the RMSE after 50 iterations of Newton's method. We observe that lower value of $\lambda$ is, the lower the converged RSME is. We select $\lambda = 10^{-4}$ as $\lambda_{op}$ as continuing to decrease $\lambda$ any further results in a negligible reduction in the RSME. Figure~\ref{fig:lambda} plots the curve of the converged RMSE against $\lambda$. 
 
 \begin{filecontents}[overwrite]{./figures/lambda.tikz}
 \begin{tikzpicture}
@@ -197,20 +197,20 @@ To determine the optimal $\lambda$, $\lambda_{op}$, we change the value of $\lam
 \end{tikzpicture}
 \end{filecontents}
 
-\begin{figure}[htp]
-    \centering
-    \caption{RSME against $\lambda$}
-    \label{fig:lambda}
-    \includegraphics[width=0.92\textwidth]{lambda.tikz}
-\end{figure}
-
 \subsection*{Fine-tune the initialization $\mathbf{p}^{(0)}$}
 
 The curves of RSME against iterations given three different initialization schemes at $\lambda = \lambda_{op} = 10^{-4}$ are shown below. Figure~\ref{fig:rsme_mean} shows the RSME against iterations given $\mathbf{p}^{(0)}$ is the average of the $K$ measured coordinates. Figure~\ref{fig:rsme_first} shows the RSME against iterations given $\mathbf{p}^{(0)}$ is the first measured coordinate. Figure~\ref{fig:rsme_randn} shows the RSME against iterations given $\mathbf{p}^{(0)}$ is a normally distributed random vector.
 
 The number of iterations needed varies depending on the chosen initialization scheme. When $\mathbf{p}^{(0)}$ is the average of the $K$ measured coordinates, we observe the initial error (RSME) to be relatively close to the converged value, and quickly converges within 20 iterations. When selecting the first measured coordinate instead, we see more iterations are needed to converge and initial error is larger (nearly an order of magnitude larger), but the final converged error is similar. Similarly, when switching to a normally distributed random vector for the initialization scheme we observe the number of iterations needed for convergence and the initial error both increase significantly (again increasing by an order of magnitude from the previous scheme), while the final converged error is similar.
 
-We can conclude that the converged RSME will be similar regardless of the initialization scheme used, however the number of iterations required for convergence and the initial RSME will vary depending on the scheme.  
+We can conclude that the converged RSME will be similar regardless of the initialization scheme used, however the number of iterations required for convergence and the initial RSME will vary depending on the scheme.
+
+\begin{figure}[htp]
+    \centering
+    \caption{RSME against $\lambda$}
+    \label{fig:lambda}
+    \includegraphics[width=\textwidth]{lambda.tikz}
+\end{figure}
 
 \begin{filecontents}[overwrite]{./figures/rsme_mean.tikz}
 \begin{tikzpicture}
