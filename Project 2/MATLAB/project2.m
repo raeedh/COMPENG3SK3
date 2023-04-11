@@ -83,7 +83,6 @@ end
 
 %% Initalize p(0) to average (mean) of  K measured coordinates
 function p0 = p0_init_mean(p)
-%     p0 = [mean(p(:,:,1)) mean(p(:,:,2)) mean(p(:,:,3))];
     p0 = [mean(p(:,1)) mean(p(:,2)) mean(p(:,3))];
 end
 
